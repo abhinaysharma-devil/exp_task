@@ -1,0 +1,37 @@
+
+<link rel="stylesheet" href="../assets/viewbook-style.css">
+<link rel="stylesheet" href="../assets/nav-footer-style.css">
+<% if(message){%>
+    <%- include('../static/flash_box.ejs')%> 
+    <%}%>
+<%-include('../static/nav.ejs')%>
+<div id="first-div"> 
+    <p id="vb-heading" style="font-size: 40px; margin: auto;">view books</p>
+    <button id="add-b-btn"><a href="http://localhost:9000/viewbooks/addbook" class="update-btn-class">+add book </a></button>
+</div>
+
+<div class="fortable">
+<table>
+    <tr id="heading">
+        <td>Book name</td>
+        <td>Authors name</td>
+        <td>y/o issue</td>
+        <td>delete</td>
+        <td>update</td>
+    </tr>
+
+    <% for(var i=0; i<len; i++) {%>
+        <tr> 
+            <td class="bookname" id="bookname-id"> <%= res[i].book_name %></td>
+            <td class="authname"><%= res[i].author %></td>
+            <td class="year"><%= res[i].release_year %></td>
+            <td><button id="del-btn-id"><a type="button" href="/viewbooks/delete/<%= res[i].book_id %>" class="delete-btn" >delete</a></button></td>
+            <td><button id="update-btn-id"><a type="button" href="/viewbooks/update/<%= res[i].book_id %>" class="update-btn">update</a></button></td>
+        </tr>
+     <% } %>
+   
+</table>
+</div>
+
+<%-include('../static/footer.ejs')%>
+   

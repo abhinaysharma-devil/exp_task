@@ -1,0 +1,49 @@
+<style>
+    .f-box {
+        box-sizing: border-box;
+        background-color: orange;
+        height: 70px;
+        width: 90vw;
+        position: fixed;
+        z-index: 2;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px black;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    #first-div {
+        display: flex;
+        justify-content: center;
+    }
+
+    .f-box p {
+        padding-left: 25px;
+        line-height: 70px;
+    }
+
+    #label-close {
+        line-height: 70px;
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+    }
+</style>
+
+<div id="first-div">
+    <div class="f-box" id="f-box-id">
+        <p>
+            <%= message %>
+        </p>
+        <label for="close-btn" id="label-close">Close x</label>
+    </div>
+</div>
+<script>
+    setTimeout(function () {
+        document.querySelector(".f-box").style.cssText = "display: none;"
+    }, 3000);
+    console.log("now");
+
+</script>
